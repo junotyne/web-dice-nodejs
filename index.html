@@ -138,19 +138,6 @@
 			}
 		</script>
 
-		<button onclick="testFavoritePlaces()">Favorite Places</button>
-		<div id="favoritePlacesJSON">Favorite Places JSON</div><br /><br />
-		<script>
-			async function testFavoritePlaces() {
-				const url = document.getElementById("urlInput").value + "/api/favorite-places";
-				const response = await fetch(url);
-				const places = await response.json();
-
-				const favoritePlacesJSONField = document.getElementById("favoritePlacesJSON");
-				const favoritePlacesText = "<pre>"+JSON.stringify(places, null, 4)+"</pre"
-				favoritePlacesJSONField.innerHTML = favoritePlacesText
-			}
-		</script>
 
 		<button onclick="diceRoller()">diceRoller</button>
 		<div id="diceRollerJSON">Dice Roller JSON</div><br /><br />
@@ -165,6 +152,22 @@
 				diceRollerJSONField.innerHTML = diceRollerText
 			}
 		</script>
+
+		<button onclick="testFavoritePlaces()">Favorite Places</button>
+		<div id="favoritePlacesJSON">Favorite Places JSON</div><br /><br />
+		<script>
+			async function testFavoritePlaces() {
+				const url = document.getElementById("urlInput").value + "/api/favorite-places";
+				const response = await fetch(url);
+				const places = await response.json();
+
+				const favoritePlacesJSONField = document.getElementById("favoritePlacesJSON");
+				const favoritePlacesText = "<pre>"+JSON.stringify(places, null, 4)+"</pre"
+				favoritePlacesJSONField.innerHTML = favoritePlacesText
+			}
+		</script>
+
+		
 
 	</div>
 </body>
