@@ -54,6 +54,10 @@
 		<div id="fetch-about-result"></div>
 		<br><br>
 
+		<button type="button" onclick="fetchAbout()">Fetch About</button>
+		<div id="fetch-about-result"></div>
+		<br><br>
+
 		<button type="button" onclick="fetch2Plus2()">Fetch 2plus2</button>
 		<div id="fetch-2plus2-result"></div>
 		<br><br>
@@ -147,6 +151,21 @@
 				favoritePlacesJSONField.innerHTML = favoritePlacesText
 			}
 		</script>
+
+		<button onclick="diceRoller()">diceRoller</button>
+		<div id="diceRollerJSON">Dice Roller JSON</div><br /><br />
+		<script>
+			async function diceRoller() {
+				const url = document.getElementById("urlInput").value + "/api/dice-roller";
+				const response = await fetch(url);
+				const places = await response.json();
+
+				const diceRollerJSONField = document.getElementById("diceRollerJSON");
+				const favoritePlacesText = "<pre>"+JSON.stringify(places, null, 4)+"</pre"
+				diceRollerJSONField.innerHTML = diceRoller
+			}
+		</script>
+
 	</div>
 </body>
 </html>
