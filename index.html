@@ -161,8 +161,8 @@
 				const places = await response.json();
 
 				const diceRollerJSONField = document.getElementById("diceRollerJSON");
-				const favoritePlacesText = "<pre>"+JSON.stringify(places, null, 4)+"</pre"
-				diceRollerJSONField.innerHTML = diceRoller
+				const diceRollerText = "<pre>"+JSON.stringify(places, null, 4)+"</pre"
+				diceRollerJSONField.innerHTML = diceRollerText
 			}
 		</script>
 
