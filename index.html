@@ -86,6 +86,23 @@
 		<div id="bmi-result"></div>
 		<br><br>
 
+
+		<select onchange="calculate()" id="systolic">
+			<option>&lt;120</option>
+			<option>120-129</option>
+			<option>120-139</option>
+			<option>140-179</option>
+            <option>&gt;180</option>
+		</select> +
+
+		<select onchange="calculate()" id="diastolic">
+			<option>&lt;80</option>
+			<option>80-89</option>
+			<option>90-119</option>
+			<option>&gt;120</option>
+		</select>
+		<input id="sum" disabled></input><br /><br /><br />
+
 		<script>
 			let fetchAboutCounter = 0
 			async function fetchAbout() {
@@ -121,6 +138,18 @@
 				// Note the URL (fetch) string will look something like '/add-two-integers?x=2&y=1' when it is sent.
 				const url = document.getElementById("urlInput").value
 				const fetchString = url+"/add-two-integers?x="+x+"&y="+y
+				const response = await fetch(fetchString)
+				const responseText = await response.text()
+				document.getElementById("sum").value = responseText
+			}
+
+			async function calculate() {
+				const x = document.getElementById("systolic").value
+				const y = document.getElementById("diastolic").value
+
+				// Note the URL (fetch) string will look something like '/add-two-integers?x=2&y=1' when it is sent.
+				const url = document.getElementById("urlInput").value
+				const fetchString = url+"/calculate?x="+x+"&y="+y
 				const response = await fetch(fetchString)
 				const responseText = await response.text()
 				document.getElementById("sum").value = responseText
